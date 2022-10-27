@@ -1,5 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
+    <!-- 头部 start -->
     <q-header elevated>
       <q-toolbar>
         <q-btn
@@ -16,6 +17,7 @@
         <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
+    <!-- 头部 end -->
 
     <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
       <q-list>
@@ -27,11 +29,36 @@
           v-bind="link"
         />
       </q-list>
+
+      <q-tabs
+        v-model="tab"
+        narrow-indicator
+        dense
+        align="justify"
+        class="bg-yellow shadow-2"
+      >
+        <div class="row">
+          <div class="col">
+            <q-tab :ripple="false" name="mails" icon="mail" label="首页" />
+          </div>
+          <div class="col">
+            <q-tab :ripple="false" name="alarms" icon="alarm" label="下单" />
+          </div>
+          <div class="col">
+            <q-tab :ripple="false" name="movies" icon="movie" label="订单" />
+          </div>
+          <div class="col">
+            <q-tab :ripple="false" name="me" icon="mail" label="我的" />
+          </div>
+        </div>
+      </q-tabs>
     </q-drawer>
 
+    <!-- 工作区 start -->
     <q-page-container>
       <router-view />
     </q-page-container>
+    <!-- 工作区 end -->
   </q-layout>
 </template>
 
@@ -100,6 +127,7 @@ export default defineComponent({
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value;
       },
+      tab: ref('mails'),
     };
   },
 });
