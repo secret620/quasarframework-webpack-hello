@@ -97,7 +97,11 @@ module.exports = configure(function (ctx) {
       // directives: [],
 
       // Quasar plugins
-      plugins: [],
+      plugins: [
+        //本地/会话存储插件
+        'LocalStorage',
+        'SessionStorage'
+      ],
     },
 
     // animations: 'all', // --- includes all animations
