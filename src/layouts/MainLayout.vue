@@ -58,8 +58,65 @@
     <!-- 工作区 start -->
     <q-page-container>
       <q-tab-panels v-model="tab" animated>
-        <q-tab-panel name="mails">
-          <div class="text-h6">首页</div>
+        <q-tab-panel name="mails" class="q-pa-sm">
+          <q-carousel
+            swipeable
+            animated
+            navigation
+            arrows
+            v-model="slide"
+            infinite
+            :autoplay="true"
+            height="15rem"
+          >
+            <template v-slot:navigation-icon="{ active, btnProps, onClick }">
+              <q-btn
+                v-if="active"
+                size="sm"
+                icon="home"
+                color="yellow"
+                flat
+                round
+                dense
+                @click="onClick"
+              />
+              <q-btn
+                v-else
+                size="sm"
+                :icon="btnProps.icon"
+                color="white"
+                flat
+                round
+                dense
+                @click="onClick"
+              />
+            </template>
+
+            <q-carousel-slide
+              :name="1"
+              img-src="https://cdn.quasar.dev/img/mountains.jpg"
+            />
+            <q-carousel-slide
+              :name="2"
+              img-src="https://cdn.quasar.dev/img/parallax1.jpg"
+            />
+            <q-carousel-slide
+              :name="3"
+              img-src="https://cdn.quasar.dev/img/parallax2.jpg"
+            />
+            <q-carousel-slide
+              :name="4"
+              img-src="https://cdn.quasar.dev/img/quasar.jpg"
+            />
+            <q-carousel-slide
+              :name="4"
+              img-src="https://v3.nuxtjs.org/img/getting-started/views/app.svg"
+            />
+            <q-carousel-slide
+              :name="4"
+              img-src="https://v3.nuxtjs.org/img/getting-started/views/components.svg"
+            />
+          </q-carousel>
           <keep-alive>
             <component v-bind:is="Navigations.IndexLayout"></component>
           </keep-alive>
@@ -67,23 +124,23 @@
 
         <q-tab-panel name="alarms">
           <div class="text-h6">商品</div>
-          <keep-alive>
+          <!-- <keep-alive>
             <component v-bind:is="Navigations.SkuLayout"></component
-          ></keep-alive>
+          ></keep-alive> -->
         </q-tab-panel>
 
         <q-tab-panel name="movies">
           <div class="text-h6">订单</div>
-          <keep-alive>
+          <!-- <keep-alive>
             <component v-bind:is="Navigations.OrderLayout"></component
-          ></keep-alive>
+          ></keep-alive> -->
         </q-tab-panel>
 
         <q-tab-panel name="me">
           <div class="text-h6">我的</div>
-          <keep-alive>
+          <!-- <keep-alive>
             <component v-bind:is="Navigations.MeLayout"></component
-          ></keep-alive>
+          ></keep-alive> -->
         </q-tab-panel>
       </q-tab-panels>
     </q-page-container>
@@ -187,6 +244,7 @@ export default defineComponent({
       },
       tab: ref('mails'),
       Navigations,
+      slide: ref(1),
     };
   },
 });
