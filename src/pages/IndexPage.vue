@@ -1,6 +1,7 @@
 <template>
   <q-page class="column flex-center">
-    <q-knob
+    indexPage
+    <!-- <q-knob
       v-model="count"
       :min="min"
       :max="max"
@@ -15,7 +16,7 @@
       </q-avatar>
     </q-knob>
 
-    <img
+     <img
       alt="Quasar logo"
       src="~assets/quasar-logo-vertical.svg"
       style="width: 200px; height: 140px"
@@ -45,7 +46,7 @@
 
     <div class="q-mt-md" style="width: 200px">
       <q-slider v-model="count" :min="min" :max="max" />
-    </div>
+    </div> -->
   </q-page>
 </template>
 
