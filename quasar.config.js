@@ -100,7 +100,8 @@ module.exports = configure(function (ctx) {
       plugins: [
         //本地/会话存储插件
         'LocalStorage',
-        'SessionStorage'
+        'SessionStorage',
+        'LoadingBar',
       ],
     },
 
